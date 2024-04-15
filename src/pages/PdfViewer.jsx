@@ -5,8 +5,9 @@ const PdfViewer = () => {
   const location = useLocation()
 
   return (
-    <div>
+    <div className="w-screen h-screen">
       <iframe
+        className="w-full h-full"
         src={location.state.link}
         frameborder="0"
         title={location.state.name}

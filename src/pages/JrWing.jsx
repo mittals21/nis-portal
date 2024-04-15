@@ -3,79 +3,81 @@ import SingleModule from "../components/SingleModule"
 import AddModule from "../components/AddModule"
 
 // Content,Title,Description,Date Created/Modified
- 
-const JrWing = () => {
 
+const JrWing = () => {
   const [isAdmin, setIsAdmin] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
 
   const dummyData = [
     {
       title: "Module 1",
-      description: "Some description",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ad repellendus dolore deserunt dolores perferendis ipsum quo ipsa aliquid consectetur vel dicta nostrum suscipit doloremque. Doloremque rem corrupti animi itaque ratione magni iste necessitatibus repellat deleniti, dolore facilis pariatur facere ipsa qui iusto excepturi? Numquam molestias iste vel qui quasi.",
       dateCreated: "14th January, 2003",
       dateModified: "21st October, 2003",
       content: [
         {
           type: "pdf",
           link: "https://clickdimensions.com/links/TestPDFfile.pdf",
-          name: "PDF"
+          name: "PDF",
         },
         {
           type: "ppt",
           link: "https://scholar.harvard.edu/files/torman_personal/files/samplepptx.pptx",
-          name: "PPT"
+          name: "PPT",
         },
         {
           type: "video",
           link: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-          name: "VIDEO"
+          name: "VIDEO",
         },
       ],
     },
     {
       title: "Module 2",
-      description: "Some description",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ad repellendus dolore deserunt dolores perferendis ipsum quo ipsa aliquid consectetur vel dicta nostrum suscipit doloremque. Doloremque rem corrupti animi itaque ratione magni iste necessitatibus repellat deleniti, dolore facilis pariatur facere ipsa qui iusto excepturi? Numquam molestias iste vel qui quasi.",
       dateCreated: "14th January, 2003",
       dateModified: "21st October, 2003",
       content: [
         {
           type: "pdf",
           link: "https://clickdimensions.com/links/TestPDFfile.pdf",
-          name: "PDF"
+          name: "PDF",
         },
         {
           type: "ppt",
           link: "https://scholar.harvard.edu/files/torman_personal/files/samplepptx.pptx",
-          name: "PPT"
+          name: "PPT",
         },
         {
           type: "video",
           link: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-          name: "VIDEO"
+          name: "VIDEO",
         },
       ],
     },
     {
       title: "Module 3",
-      description: "Some description",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ad repellendus dolore deserunt dolores perferendis ipsum quo ipsa aliquid consectetur vel dicta nostrum suscipit doloremque. Doloremque rem corrupti animi itaque ratione magni iste necessitatibus repellat deleniti, dolore facilis pariatur facere ipsa qui iusto excepturi? Numquam molestias iste vel qui quasi.",
       dateCreated: "14th January, 2003",
       dateModified: "21st October, 2003",
-      content: [ 
+      content: [
         {
-          type: "pdf", 
+          type: "pdf",
           link: "https://clickdimensions.com/links/TestPDFfile.pdf",
-          name: "PDF"
+          name: "PDF",
         },
         {
           type: "ppt",
           link: "https://scholar.harvard.edu/files/torman_personal/files/samplepptx.pptx",
-          name: "PPT"
+          name: "PPT",
         },
         {
           type: "video",
           link: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-          name: "VIDEO"
+          name: "VIDEO",
         },
       ],
     },
@@ -83,28 +85,34 @@ const JrWing = () => {
 
   const [data, setData] = useState(dummyData)
 
-
-  const handleDelete = (i) => {
-    const filterData = data.filter((d, index) => i !== index)
-    setData(filterData)
-  }
-
   return (
-    <div>
-      <p>Junior Wing</p>
-      <div>
+    <div className="p-5 bg-purple-300/45 space-y-14 h-screen">
+      <p className="text-center text-5xl">Junior Wing</p>
+      <div className="space-y-5">
         {data.map((d, idx) => (
-          <div key={idx} className="flex gap-3 ">
-          <SingleModule obj={d}  wingName={"jr-wing"}/>
-          <button onClick={() => handleDelete(idx)}>Delete</button>
-          </div>
+          <SingleModule
+            obj={d}
+            wingName={"jr-wing"}
+            key={idx}
+            idx={idx}
+            data={data}
+            setData={setData}
+          />
         ))}
-      
       </div>
       {isAdmin && (
-        <button onClick={() => setIsOpen(!isOpen)}>Add Module</button>
+        <button
+          className="border-2 border-purple-300 hover:text-white hover:bg-purple-600 hover:border-purple-600 transition-all duration-200 ease-linear text-xl tracking-widest font-semibold bg-white px-8 py-3 rounded-md"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          Add Module
+        </button>
       )}
-      {isOpen && <AddModule setData={setData} />}
+      <div>
+        {isOpen && (
+          <AddModule setIsOpen={setIsOpen} isOpen={isOpen} setData={setData} />
+        )}
+      </div>
     </div>
   )
 }

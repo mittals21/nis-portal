@@ -5,8 +5,13 @@ const VideoViewer = () => {
   const location = useLocation()
 
   return (
-    <div>
-      <video src={location.state.link} typeof="video/*" controls></video>
+    <div className="h-screen w-screen">
+      <video
+        src={location.state.link}
+        className="h-full w-full"
+        typeof="video/*"
+        controls
+      ></video>
     </div>
   )
 }

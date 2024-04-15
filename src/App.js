@@ -20,7 +20,7 @@ const App = () => {
   }, [isLoggedIn])
 
   return (
-    <div>
+    <div className="font-serif">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
