@@ -95,7 +95,7 @@ const AddModule = ({ setData, setIsOpen, isOpen }) => {
                     name="type"
                     id="type"
                     value={c.type}
-                    className="text-xl outline-none px-2 py-1 cursor-pointer bg-purple-200/50"
+                    className="text-xl outline-none px-2 py-1 cursor-pointer rounded bg-purple-200/50"
                     onChange={(e) =>
                       handleUpdateContent(
                         i,

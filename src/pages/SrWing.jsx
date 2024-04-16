@@ -9,8 +9,7 @@ const SrWing = () => {
   const dummyData = [
     {
       title: "Module 1",
-      description:
-        "Lorem.",
+      description: "Lorem.",
       dateCreated: "14th January, 2003",
       dateModified: "21st October, 2003",
       content: [
@@ -84,7 +83,7 @@ const SrWing = () => {
   const [data, setData] = useState(dummyData)
 
   return (
-    <div className="p-5 bg-purple-300/45 space-y-14 h-screen">
+    <div className="p-5 bg-purple-300/35 space-y-14 h-screen">
       <p className="text-center text-5xl">Senior Wing</p>
       <div className="space-y-5">
         {data.map((d, idx) => (
@@ -100,7 +99,7 @@ const SrWing = () => {
       </div>
       {isAdmin && (
         <button
-          className="border-2 border-purple-300 hover:text-white hover:bg-purple-600 hover:border-purple-600 transition-all duration-200 ease-linear text-xl tracking-widest font-semibold bg-white px-8 py-3 rounded-md"
+          className="border-2 hover:bg-purple-600 hover:text-white border-purple-600 hover:border-purple-600 transition-all duration-200 ease-linear text-xl tracking-widest font-semibold bg-white px-8 py-3 rounded-md"
           onClick={() => setIsOpen(!isOpen)}
         >
           Add Module

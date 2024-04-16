@@ -30,58 +30,62 @@ const SingleModule = ({ obj, wingName, data, setData, idx }) => {
   }
 
   return (
-    <div
-      onClick={() => setShowData(!showData)}
-      className={`${
-        showData ? "bg-purple-400/75" : "bg-purple-300/75"
-      } p-5 transition-all rounded duration-200 ease-linear`}
-    >
+    <div className={`bg-purple-400/75 rounded`}>
       <div className={` ${showData && "space-y-8"} text-xl`}>
-        <div className="flex cursor-pointer tracking-wide items-center justify-between">
+        <div
+          onClick={() => setShowData(!showData)}
+          className={`${
+            showData ? "bg-purple-400" : "bg-purple-300/75"
+          } p-5 flex rounded cursor-pointer tracking-wide transition-all duration-150 ease-linear items-center justify-between`}
+        >
           <p className="text-4xl">{obj.title}</p>
           <button
-            className="z-10 bg-purple-600 text-white px-4 py-2 rounded-md"
+            className="z-10 bg-purple-600 border-2 border-purple-600 hover:text-purple-600 hover:bg-white transition-all ease-linear duration-150 text-white px-4 py-2 rounded-md"
             onClick={() => handleDelete(idx)}
           >
             Delete
           </button>
         </div>
-        <div>
-          {showData && (
-            <div className="space-y-5 relative">
-              <p className="max-w-[50%]">{obj.description}</p>
-              <div className="absolute right-5 top-0">
-                <div className="text-base flex items-center gap-2">
-                  <p>Created On:</p>
-                  <p>{obj.dateCreated}</p>
-                </div>
-                <div className="text-base flex items-center gap-2">
-                  <p>Updated On:</p>
-                  <p>{obj.dateModified}</p>
-                </div>
+        <div
+          className={`${
+            showData ? "h-full" : "h-0"
+          } transition-all duration-150 text-black ${
+            showData && "p-5"
+          } ease-linear overflow-hidden`}
+        >
+          <div className="space-y-5 relative">
+            <p className="max-w-[50%]">{obj.description}</p>
+            <div className="absolute right-5 top-0">
+              <div className="text-base flex items-center gap-2">
+                <p>Created On:</p>
+                <p>{obj.dateCreated}</p>
               </div>
-              <div className="flex items-center gap-5">
-                {obj.content.map((dc, index) => (
-                  <button
-                    key={index}
-                    className="capitalize border-r-2 last:border-none pr-5 border-white hover:text-2xl transition-all duration-150 ease-linear flex items-center gap-2"
-                    onClick={() =>
-                      handleClick(obj.title, dc.type, dc.link, dc.name)
-                    }
-                  >
-                    {dc.type}
-                    <span>
-                      {dc.type !== "ppt" ? (
-                        <FaExternalLinkAlt size={18} />
-                      ) : (
-                        <IoCloudDownload size={18} />
-                      )}
-                    </span>
-                  </button>
-                ))}
+              <div className="text-base flex items-center gap-2">
+                <p>Updated On:</p>
+                <p>{obj.dateModified}</p>
               </div>
             </div>
-          )}
+            <div className="flex items-center gap-5">
+              {obj.content.map((dc, index) => (
+                <button
+                  key={index}
+                  className="capitalize border-r-2 last:border-none pr-5 border-white hover:text-2xl transition-all duration-150 ease-linear flex items-center gap-2"
+                  onClick={() =>
+                    handleClick(obj.title, dc.type, dc.link, dc.name)
+                  }
+                >
+                  {dc.type}
+                  <span>
+                    {dc.type !== "ppt" ? (
+                      <FaExternalLinkAlt size={18} />
+                    ) : (
+                      <IoCloudDownload size={18} />
+                    )}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

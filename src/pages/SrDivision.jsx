@@ -4,7 +4,7 @@ import AddModule from "../components/AddModule"
 
 // Content,Title,Description,Date Created/Modified
 
-const JrWing = () => {
+const SrDivision = () => {
   const [isAdmin, setIsAdmin] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -86,13 +86,13 @@ const JrWing = () => {
   const [data, setData] = useState(dummyData)
 
   return (
-    <div className="p-5 bg-purple-300/45 space-y-14 h-screen">
-      <p className="text-center text-5xl">Junior Wing</p>
+    <div className="p-5 bg-purple-300/35 space-y-14 h-screen">
+      <p className="text-center text-5xl">Senior Division</p>
       <div className="space-y-5">
         {data.map((d, idx) => (
           <SingleModule
             obj={d}
-            wingName={"jr-wing"}
+            wingName={"sr-division"}
             key={idx}
             idx={idx}
             data={data}
@@ -102,7 +102,7 @@ const JrWing = () => {
       </div>
       {isAdmin && (
         <button
-          className="border-2 border-purple-300 hover:text-white hover:bg-purple-600 hover:border-purple-600 transition-all duration-200 ease-linear text-xl tracking-widest font-semibold bg-white px-8 py-3 rounded-md"
+          className="border-2 hover:bg-purple-600 hover:text-white border-purple-600 hover:border-purple-600 transition-all duration-200 ease-linear text-xl tracking-widest font-semibold bg-white px-8 py-3 rounded-md"
           onClick={() => setIsOpen(!isOpen)}
         >
           Add Module
@@ -117,4 +117,4 @@ const JrWing = () => {
   )
 }
 
-export default JrWing
+export default SrDivision

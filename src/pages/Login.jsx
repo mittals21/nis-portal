@@ -16,7 +16,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex justify-center tracking-wider items-center h-screen bg-purple-300/45">
+    <div className="flex justify-center tracking-wider items-center h-screen bg-purple-300/35">
       <div className="flex flex-col justify-center bg-white px-10 py-20 w-[50vw] rounded-xl gap-5 lg:w-[30vw]">
         <div className="flex flex-col gap-1">
           <label htmlFor="email" className="text-xl lg:text-2xl cursor-pointer">
