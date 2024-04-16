@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Content Management System Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+The content management system (CMS) for NIS Portal is a web application designed to manage and organize study material for educational purposes. It provides two different authority levels: admin and user. Admins can add, edit, or delete study material, while users can only view and access the resources.
 
-In the project directory, you can run:
+The study material is structured into two sections: senior division and senior wing. Each section contains modules or topics, and each topic contains various types of content such as videos, text, presentations, etc.
 
-### `npm start`
+## Modules and Functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Authentication Module**:
+   - Description: Handles user authentication using Firebase Authentication.
+   - Technologies: Firebase Authentication.
+   - Workflow: Allows users to sign up, sign in, and manage their accounts securely.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Admin Panel Module**:
+   - Description: Allows admins to manage study material and user roles.
+   - Technologies: React, Tailwind CSS, Redux, Firebase Authentication, Firebase Firestore.
+   - Workflow: Admins can add, edit, or delete study material. 
 
-### `npm test`
+3. **User Dashboard Module**:
+   - Description: Allows users to view and access study material.
+   - Technologies: React, Tailwind CSS, Redux, Firebase Authentication, Firebase Firestore.
+   - Workflow: Users can view study material organized by senior division and senior wings. They can select a section to view modules/topics and access the content.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Study Material Structure Module**:
+   - Description: Defines the structure of study material.
+   - Technologies: Firebase Firestore.
+   - Workflow: Study material is organized into senior division and senior wings, each containing modules/topics. Admins can add, edit, or delete modules/topics and their content.
 
-### `npm run build`
+## System Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**:
+  - Built with React for UI components.
+  - Styled with Tailwind CSS.
+  - State managed with Redux.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Backend**:
+  - Firebase for authentication (Firebase Authentication).
+  - Firebase Firestore for storing study material data.
+  - Firebase Storage for storing multimedia content.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Communication**:
+  - Frontend communicates with Firebase services using Firebase SDKs.
 
-### `npm run eject`
+- **Security**:
+  - Firebase Authentication for user authentication.
+  - Firebase Security Rules to restrict access to study material based on user roles.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Frontend: Deployed to Firebase Hosting or Netlify.
+- Backend: Firebase Functions for backend logic.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Conclusion
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The content management system provides a robust solution for managing educational study material. It offers a user-friendly interface for admins to manage content and for users to access resources securely. The use of Firebase for authentication, database, and storage ensures scalability, security, and performance.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
